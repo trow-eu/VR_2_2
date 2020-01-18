@@ -7,6 +7,7 @@ public class WebShooting : MonoBehaviour
     public GameObject webBall;
     public GameObject SpiderWeb;
     public LineRenderer lr;
+    public string Button;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class WebShooting : MonoBehaviour
         RaycastHit hit;
             Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
-            if(Input.GetButtonDown("Oculus_CrossPlatform_Button4")&& Physics.Raycast(transform.position, fwd, out hit, 10))
+            if(Input.GetButtonDown(Button)&& Physics.Raycast(transform.position, fwd, out hit, 10))
             {
                 Instantiate(SpiderWeb, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             lr.SetPosition(1, hit.point);

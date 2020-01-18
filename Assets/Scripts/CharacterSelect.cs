@@ -32,14 +32,27 @@ public class CharacterSelect : MonoBehaviour
                 charSelect--;
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(charSelect == 0)
         {
-            charSelect = 0;
+            this.GetComponentInParent<Climber>().enabled = false;
+            this.GetComponent<WebShooting>().enabled = false;
+            this.GetComponent<OVRGrabber>().enabled = true;
+            // cut not active;
+        }
+        if (charSelect == 1)
+        {
+            this.GetComponentInParent<Climber>().enabled = true;
+            this.GetComponent<WebShooting>().enabled = true;
+            this.GetComponent<OVRGrabber>().enabled = true;
+            // cut not active;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        if(charSelect == 2)
         {
-            charSelect = 1;
+            this.GetComponentInParent<Climber>().enabled = false;
+            this.GetComponent<WebShooting>().enabled = false;
+            this.GetComponent<OVRGrabber>().enabled = false;
+            //Cut active;
         }
 
         if (previousSelecterChar != charSelect)
@@ -52,7 +65,6 @@ public class CharacterSelect : MonoBehaviour
     {
         if(other.gameObject.tag == "ButtonL")
         {
-            Debug.Log("Hjit");
             if (charSelect <= 0)
                 charSelect = characters.Count - 1;
             else
