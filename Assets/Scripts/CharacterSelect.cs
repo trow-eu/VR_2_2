@@ -36,23 +36,26 @@ public class CharacterSelect : MonoBehaviour
         {
             this.GetComponentInParent<Climber>().enabled = false;
             this.GetComponent<WebShooting>().enabled = false;
-            this.GetComponent<OVRGrabber>().enabled = true;
-            // cut not active;
+            this.GetComponent<OVRGrabber>().grabBegin = 0.55f;
+            //this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.tag = "Untagged";
         }
         if (charSelect == 1)
         {
             this.GetComponentInParent<Climber>().enabled = true;
             this.GetComponent<WebShooting>().enabled = true;
-            this.GetComponent<OVRGrabber>().enabled = true;
-            // cut not active;
+            this.GetComponent<OVRGrabber>().grabBegin = 0.55f;
+            //this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.tag = "Untagged";
         }
 
         if(charSelect == 2)
         {
             this.GetComponentInParent<Climber>().enabled = false;
             this.GetComponent<WebShooting>().enabled = false;
-            this.GetComponent<OVRGrabber>().enabled = false;
-            //Cut active;
+            this.GetComponent<OVRGrabber>().grabBegin = 1.5f;
+            //this.gameObject.GetComponent<BoxCollider>().enabled = true;
+            this.gameObject.tag = "Cut";
         }
 
         if (previousSelecterChar != charSelect)

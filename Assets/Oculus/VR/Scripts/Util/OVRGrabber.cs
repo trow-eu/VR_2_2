@@ -206,6 +206,7 @@ public class OVRGrabber : MonoBehaviour
         else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
         {
             GrabEnd();
+
         }
     }
 
