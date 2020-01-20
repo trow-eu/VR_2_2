@@ -5,11 +5,11 @@ using UnityEngine;
 public class Cuting : MonoBehaviour
 {
     public GameObject DestroyedVersion;
-    public OVRInput.Controller controller = OVRInput.Controller.None;
+    public OVRInput.Button controller = OVRInput.Button.None;
     public Animator CutAnim;
     void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Cut" && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        if(other.gameObject.tag == "Cut" && OVRInput.GetDown(controller))
         {
             Debug.Log("Cut");
             Instantiate(DestroyedVersion, transform.position, transform.rotation);

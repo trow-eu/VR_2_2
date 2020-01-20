@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WebShooting : MonoBehaviour
 {
-    public GameObject webBall;
     public GameObject SpiderWeb;
     public LineRenderer lr;
     public OVRInput.Controller controller = OVRInput.Controller.None;

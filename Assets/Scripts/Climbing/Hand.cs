@@ -26,10 +26,15 @@ public class Hand : MonoBehaviour
     private void Update()
     {
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, controller))
+        {
             GrabPoint();
-
+            this.GetComponentInParent<LocomotionController>().enabled = false;
+        }
         if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))
-            ReleasePoint(); 
+        {
+            ReleasePoint();
+            this.GetComponentInParent<LocomotionController>().enabled = true;
+        }
     }
 
     private void FixedUpdate()
