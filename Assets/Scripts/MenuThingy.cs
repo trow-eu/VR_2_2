@@ -5,7 +5,6 @@ using UnityEngine;
 public class MenuThingy : MonoBehaviour
 {
     public OVRInput.Controller controller = OVRInput.Controller.None;
-    public GameObject Menu;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +15,15 @@ public class MenuThingy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.Start, controller) == true)
+        if (OVRInput.GetDown(OVRInput.Button.Start, OVRInput.Controller.LTouch))
         {
             this.gameObject.SetActive(true);
-        }else
+            Debug.Log("oit");
+        }
+        else if (OVRInput.GetUp(OVRInput.Button.Start, OVRInput.Controller.LTouch))
         {
             this.gameObject.SetActive(false);
         }
-        
+
     }
 }
